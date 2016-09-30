@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+
 import { Hero } from  './hero'
-import { HeroDetailComponent } from  './hero-detail.component'
 import { HeroService } from  './hero.service'
 
 @Component({
-  directives: [HeroDetailComponent],
   selector: 'my-heroes',
   styles: [require('./heroes.component.scss')],
   template: require('./heroes.component.html'),

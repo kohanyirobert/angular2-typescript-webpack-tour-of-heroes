@@ -6,7 +6,6 @@ module.exports = {
   entry: {
     app: './app/main.ts',
     polyfills: './app/polyfills.ts',
-    vendor: './app/vendor.ts',
   },
   output: {
     path: './dist',
@@ -32,8 +31,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'polyfills'],
+      name: ['polyfills'],
     }),
     new HtmlWebpackPlugin({
       title: path.basename(__dirname),
